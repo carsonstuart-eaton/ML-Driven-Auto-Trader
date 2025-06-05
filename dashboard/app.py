@@ -1,3 +1,8 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+
 import dash
 from dash import html, dcc, Input, Output
 import pandas as pd
@@ -79,4 +84,4 @@ def update_dashboard(asset, threshold):
     return fig, stats_text
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)
