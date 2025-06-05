@@ -54,6 +54,7 @@ def update_dashboard(asset, threshold):
     
     # Example: simulate probabilities → binary prediction (for demo)
     if 'prediction' not in df.columns:
+        df['Close'] = pd.to_numeric(df['Close'], errors='coerce')
         df['prediction'] = (df['Close'].pct_change().shift(-1) > 0).astype(int)  # crude signal
 
     # Apply threshold
